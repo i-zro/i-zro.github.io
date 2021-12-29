@@ -6,15 +6,20 @@
   
   <title>최종 1월 30일 교수님 제출본 | 코딩 draft 정리</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="실행환경 Windows 10 MSVC 2019 SDK 사용을 위한 설정MSVC의 프로젝트에서 Nuget패키지 관리를 클릭하여 키넥트 관련 센서 패키지 및 바디 트래킹 패키지를 설치 하여야함.   (필수는 아니고 dll을 불러서 사용할 수도 있지만 그냥 이 방법이 가장 편리한 것 같음.)   키넥트 SDK 코드k4atypes.h 정의 내용 k4a_float3">
+<meta property="og:type" content="article">
 <meta property="og:title" content="최종 1월 30일 교수님 제출본">
 <meta property="og:url" content="https://i-zro.github.io/2021/12/28/%EC%B5%9C%EC%A2%85-1%EC%9B%94-30%EC%9D%BC-%EA%B5%90%EC%88%98%EB%8B%98-%EC%A0%9C%EC%B6%9C%EB%B3%B8/index.html">
 <meta property="og:site_name" content="코딩 draft 정리">
+<meta property="og:description" content="실행환경 Windows 10 MSVC 2019 SDK 사용을 위한 설정MSVC의 프로젝트에서 Nuget패키지 관리를 클릭하여 키넥트 관련 센서 패키지 및 바디 트래킹 패키지를 설치 하여야함.   (필수는 아니고 dll을 불러서 사용할 수도 있지만 그냥 이 방법이 가장 편리한 것 같음.)   키넥트 SDK 코드k4atypes.h 정의 내용 k4a_float3">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.imgur.com/epChjX4.png">
+<meta property="og:image" content="https://i.imgur.com/KDQ8waP.png">
 <meta property="article:published_time" content="2021-12-27T15:48:58.000Z">
-<meta property="article:modified_time" content="2021-12-27T15:48:58.324Z">
+<meta property="article:modified_time" content="2021-12-29T14:17:16.930Z">
 <meta property="article:author" content="Kwon Na Yeong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.imgur.com/epChjX4.png">
   
     <link rel="alternate" href="/atom.xml" title="코딩 draft 정리" type="application/atom+xml">
   
@@ -93,7 +98,38 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="실행환경"><a href="#실행환경" class="headerlink" title="실행환경"></a>실행환경</h2><ul>
+<li>Windows 10</li>
+<li>MSVC 2019</li>
+<li>SDK 사용을 위한 설정<br>MSVC의 프로젝트에서 Nuget패키지 관리를 클릭하여 키넥트 관련 센서 패키지 및 바디 트래킹 패키지를 설치 하여야함. </li>
+</ul>
+<p>(필수는 아니고 dll을 불러서 사용할 수도 있지만 그냥 이 방법이 가장 편리한 것 같음.)</p>
+<p><img src="https://i.imgur.com/epChjX4.png" alt="Image"></p>
+<p><img src="https://i.imgur.com/KDQ8waP.png" alt="Image"></p>
+<h2 id="키넥트-SDK-코드"><a href="#키넥트-SDK-코드" class="headerlink" title="키넥트 SDK 코드"></a>키넥트 SDK 코드</h2><h3 id="k4atypes-h-정의-내용"><a href="#k4atypes-h-정의-내용" class="headerlink" title="k4atypes.h 정의 내용"></a>k4atypes.h 정의 내용</h3><ul>
+<li>k4a_float3_t</li>
+</ul>
+<p>3차원의 위치 정보 표현을 위해서 최소한 x, y, z가 필요하다.<br>단순히 그러한 float 형인 x, y, z를 담는 구조체이다.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/** XYZ or array representation of vector. */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> _<span class="title">xyz</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">float</span> x; <span class="comment">/**&lt; X component of a vector. */</span></span><br><span class="line">        <span class="keyword">float</span> y; <span class="comment">/**&lt; Y component of a vector. */</span></span><br><span class="line">        <span class="keyword">float</span> z; <span class="comment">/**&lt; Z component of a vector. */</span></span><br><span class="line">    &#125; xyz;       <span class="comment">/**&lt; X, Y, Z representation of a vector. */</span></span><br><span class="line">    <span class="keyword">float</span> v[<span class="number">3</span>];  <span class="comment">/**&lt; Array representation of a vector. */</span></span><br><span class="line">&#125; <span class="keyword">k4a_float3_t</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="k4abttypes-h-정의-내용"><a href="#k4abttypes-h-정의-내용" class="headerlink" title="k4abttypes.h 정의 내용"></a>k4abttypes.h 정의 내용</h3><ul>
+<li>k4a_quaternion_t</li>
+</ul>
+<p>kinect의 quaternion의 w, x, y, z가 들어가 있는 구조체.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">union</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="comment">/** WXYZ or array representation of quaternion */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> _<span class="title">wxyz</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">        <span class="keyword">float</span> w; <span class="comment">/**&lt; W representation of a quaternion */</span></span><br><span class="line">        <span class="keyword">float</span> x; <span class="comment">/**&lt; X representation of a quaternion */</span></span><br><span class="line">        <span class="keyword">float</span> y; <span class="comment">/**&lt; Y representation of a quaternion */</span></span><br><span class="line">        <span class="keyword">float</span> z; <span class="comment">/**&lt; Z representation of a quaternion */</span></span><br><span class="line">    &#125; wxyz;      <span class="comment">/**&lt; W, X, Y, Z representation of a quaternion */</span></span><br><span class="line">    <span class="keyword">float</span> v[<span class="number">4</span>];  <span class="comment">/**&lt; Array representation of a quaternion */</span></span><br><span class="line">&#125; <span class="keyword">k4a_quaternion_t</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>k4abt_joint_confidence_level_t</li>
+</ul>
+<p>현재 관측된 관절이 어느 정도의 정확도를 갖는 지를 나타내는 구조체.<br>0은 관절이 범위에서 벗어난 경우,<br>1은 관절이 예상 범위와 다를 때,<br>2는 중간정도의 정확도를 가질 때이다.<br>현재에서는 2가 최대이다.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">enum</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    K4ABT_JOINT_CONFIDENCE_NONE = <span class="number">0</span>,          <span class="comment">/**&lt; The joint is out of range (too far from depth camera) */</span></span><br><span class="line">    K4ABT_JOINT_CONFIDENCE_LOW = <span class="number">1</span>,           <span class="comment">/**&lt; The joint is not observed (likely due to occlusion), predicted joint pose */</span></span><br><span class="line">    K4ABT_JOINT_CONFIDENCE_MEDIUM = <span class="number">2</span>,        <span class="comment">/**&lt; Medium confidence in joint pose. Current SDK will only provide joints up to this confidence level */</span></span><br><span class="line">    K4ABT_JOINT_CONFIDENCE_HIGH = <span class="number">3</span>,          <span class="comment">/**&lt; High confidence in joint pose. Placeholder for future SDK */</span></span><br><span class="line">    K4ABT_JOINT_CONFIDENCE_LEVELS_COUNT = <span class="number">4</span>,  <span class="comment">/**&lt; The total number of confidence levels. */</span></span><br><span class="line">&#125; <span class="keyword">k4abt_joint_confidence_level_t</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>k4abt_body_t</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">k4abt_body_t</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">uint32_t</span> id;                <span class="comment">/**&lt; An id for the body that can be used for frame-to-frame correlation*/</span></span><br><span class="line">    <span class="keyword">k4abt_skeleton_t</span> skeleton;  <span class="comment">/**&lt; The skeleton information for the body */</span></span><br><span class="line">&#125; <span class="keyword">k4abt_body_t</span>;</span><br></pre></td></tr></table></figure></li>
+<li><p>k4abt_joint_t</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">k4abt_joint_t</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">k4a_float3_t</span>     position;    <span class="comment">/**&lt; The position of the joint specified in millimeters*/</span></span><br><span class="line">    <span class="keyword">k4a_quaternion_t</span> orientation; <span class="comment">/**&lt; The orientation of the joint specified in normalized quaternion*/</span></span><br><span class="line">    <span class="keyword">k4abt_joint_confidence_level_t</span> confidence_level; <span class="comment">/**&lt; The confidence level of the joint*/</span></span><br><span class="line">&#125; <span class="keyword">k4abt_joint_t</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
@@ -106,6 +142,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2021/12/29/Farm-%EA%B3%84%ED%9A%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Farm 계획
+        
+      </div>
+    </a>
   
   
     <a href="/2021/12/28/SDK-%EC%83%98%ED%94%8C-%EC%BD%94%EB%93%9C/" id="article-nav-older" class="article-nav-link-wrap">
@@ -160,6 +205,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/12/29/Farm-%EA%B3%84%ED%9A%8D/">Farm 계획</a>
+          </li>
         
           <li>
             <a href="/2021/12/28/%EC%B5%9C%EC%A2%85-1%EC%9B%94-30%EC%9D%BC-%EA%B5%90%EC%88%98%EB%8B%98-%EC%A0%9C%EC%B6%9C%EB%B3%B8/">최종 1월 30일 교수님 제출본</a>
