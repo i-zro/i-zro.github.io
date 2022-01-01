@@ -71,6 +71,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="posts-KinSave-sln-설명서" class="h-entry article article-type-posts" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/02/KinSave-sln-%EC%84%A4%EB%AA%85%EC%84%9C/" class="article-date">
+  <time class="dt-published" datetime="2022-01-01T21:10:40.000Z" itemprop="datePublished">2022-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/02/KinSave-sln-%EC%84%A4%EB%AA%85%EC%84%9C/">KinSave.sln 설명서</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Kinect csv파일만 저장하는 코드 (100 프레임까지)</p>
+<p>저장 프레임 늘리고 싶으면<br>반복문에서 증가시키면 됨.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (frame_count &lt; <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/U3TBSar.png" alt="Image"></p>
+<ul>
+<li>A행이 신체 관절 좌표 번호</li>
+<li>B x, C y, D z 위치 좌표</li>
+<li>E w, F x, G y, H z 쿼터니언 값 </li>
+<li>I가 confidence level</li>
+</ul>
+<p><img src="https://i.imgur.com/xMAns0F.png" alt="Image"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://i-zro.github.io/2022/01/02/KinSave-sln-%EC%84%A4%EB%AA%85%EC%84%9C/" data-id="ckxwbu2540000kou1g5n24l7t" data-title="KinSave.sln 설명서" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="posts-만든-것들-설명" class="h-entry article article-type-posts" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/01/02/%EB%A7%8C%EB%93%A0-%EA%B2%83%EB%93%A4-%EC%84%A4%EB%AA%85/" class="article-date">
@@ -508,6 +557,10 @@
       <ul>
         
           <li>
+            <a href="/2022/01/02/KinSave-sln-%EC%84%A4%EB%AA%85%EC%84%9C/">KinSave.sln 설명서</a>
+          </li>
+        
+          <li>
             <a href="/2022/01/02/%EB%A7%8C%EB%93%A0-%EA%B2%83%EB%93%A4-%EC%84%A4%EB%AA%85/">만든 것들 설명</a>
           </li>
         
@@ -521,10 +574,6 @@
         
           <li>
             <a href="/2021/12/30/%EC%B0%B8%EA%B3%A0-%EA%B9%83%ED%97%88%EB%B8%8C/">참고 깃허브</a>
-          </li>
-        
-          <li>
-            <a href="/2021/12/29/Farm-%EA%B3%84%ED%9A%8D/">Farm 계획</a>
           </li>
         
       </ul>
